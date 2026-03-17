@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 250 35% 10%;
+    --foreground: 0 0% 93%;
+
+    --card: 250 32% 14%;
+    --card-foreground: 0 0% 93%;
+
+    --popover: 250 32% 14%;
+    --popover-foreground: 0 0% 93%;
+
+    --primary: 338 75% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 250 28% 18%;
+    --secondary-foreground: 0 0% 93%;
+
+    --muted: 250 28% 17%;
+    --muted-foreground: 245 12% 55%;
+
+    --accent: 250 28% 18%;
+    --accent-foreground: 0 0% 93%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 255 22% 22%;
+    --input: 255 22% 22%;
+    --ring: 338 75% 58%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 250 35% 10%;
+    --sidebar-foreground: 245 15% 62%;
+    --sidebar-primary: 338 75% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 250 28% 15%;
+    --sidebar-accent-foreground: 0 0% 93%;
+    --sidebar-border: 255 22% 22%;
+    --sidebar-ring: 338 75% 58%;
+
+    --gradient-primary: linear-gradient(135deg,#7C4EFF,#FF397D);
+    --gradient-connect: linear-gradient(135deg,#7C4EFF,#FF397D);
+
+    --stat-purple: 268 55% 55%;
+    --stat-green: 155 55% 42%;
+    --stat-orange: 32 80% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .gradient-connect {
+    background: var(--gradient-connect);
+  }
+  .navbar-border-b {
+    position: relative;
+  }
+  .navbar-border-b::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, #27194A 0%, #27194A 100%);
+  }
+  .sidebar-border-r {
+    position: relative;
+  }
+  .sidebar-border-r::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    background: linear-gradient(180deg, #27194A 0%, #27194A 100%);
+  }
+  .app-bg {
+    background:
+      radial-gradient(600px circle at 120px 70%, rgba(124, 78, 255, 0.25) 0%, rgba(124, 78, 255, 0) 60%),
+      linear-gradient(135deg, #190737 0%, #0f0627 100%);
+    background-repeat: no-repeat;
+  }
+  
+  .kyc-section {
+    background: #1F0A42;
+    position: relative;
+  }
+  .kyc-section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    opacity: 1;
+    background: linear-gradient(90deg, #5E21AA 0%, #DF4993 100%);
+  }
+  .thead-gradient-b {
+    position: relative;
+    background: #1F0A42;
+  }
+  .thead-gradient-b::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(180deg, #27194A 0%, #27194A 100%);
+  }
+
+  .border-gradient-90-img {
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background:
+      linear-gradient(#190737, #190737) padding-box,
+      linear-gradient(90deg, #5E21AA 0%, #DF4993 100%) border-box;
+  }
+}
