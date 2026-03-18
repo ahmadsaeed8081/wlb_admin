@@ -1,9 +1,11 @@
 import AdminLayout from "@/components/AdminLayout";
-import { Upload } from "lucide-react";
+import { CloudCog, Upload } from "lucide-react";
 import galleryWide from "@/assets/icon/Gallery Wide.png";
 import icon from '@/assets/icon/Add Circle.png';
 import { useState, useRef, useEffect } from "react";
 
+import { useWeb3Modal,useWeb3ModalTheme } from '@web3modal/wagmi/react'
+import { useAccount, useReadContract, useWriteContract } from "wagmi";
 const AddProduct = () => {
   const [form, setForm] = useState({
     name: "",
@@ -15,7 +17,8 @@ const AddProduct = () => {
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
+  const { isConnected,isDisconnected,chain } = useAccount()
+  const { address } = useAccount();
   const [categories, setCategories] = useState<{ name: string; image: string }[]>([]);
   const [showCategoryModal, setShowCategoryModal] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState("");
@@ -72,6 +75,16 @@ const AddProduct = () => {
 
   // Handle creating new category
   const handleCreateCategory = async () => {
+    if (isDisconnected) {
+      alert("kindly connect your wallet");
+      return
+    }
+
+    if(address.toLowerCase() != import.meta.env.VITE_WC_OWNER.toLowerCase()){
+      alert("only owner can perform this action ");
+      return
+    }
+
     if (!newCategoryName || !newCategoryImage) return alert("Name and image required!");
       alert(newCategoryName)
     try {
@@ -113,6 +126,15 @@ const AddProduct = () => {
   // Handle product submit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isDisconnected) {
+      alert("kindly connect your wallet");
+      return
+    }
+
+    if(address.toLowerCase() != import.meta.env.VITE_WC_OWNER.toLowerCase()){
+      alert("only owner can perform this action ");
+      return
+    }
     if (!selectedFile) return alert("Please select an image!");
     if (!form.category) return alert("Select a category!"+form.category);
 
