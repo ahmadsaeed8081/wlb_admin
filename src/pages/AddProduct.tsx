@@ -129,7 +129,6 @@ const AddProduct = () => {
         method: "POST",
         body: formData,
         headers: {
-          "Content-Type": "application/json",
           "x-api-key": import.meta.env.VITE_WC_APIKEY
         }
       });
