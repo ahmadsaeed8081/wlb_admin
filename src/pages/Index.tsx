@@ -35,7 +35,7 @@ const Index = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await fetch(`http://187.127.99.119:8000/api/admin/summary`);
+        const res = await fetch(`https://api.weblifebiz.com/api/admin/summary`);
         const data = await res.json();
         
         if (data.success) {

@@ -28,7 +28,7 @@ const EditProduct = () => {
   // Fetch products from backend
   // ---------------------------
   const fetchProducts = async () => {
-    const res = await fetch("http://187.127.99.119:8000/api/products"
+    const res = await fetch("https://api.weblifebiz.com/api/products"
     );
     const data = await res.json();
     setProducts(data);
@@ -61,7 +61,7 @@ const EditProduct = () => {
       category: product.category,
       image: null
     });
-    setPreviewImage(product.image ? `http://187.127.99.119:8000${product.image}` : null);
+    setPreviewImage(product.image ? `https://api.weblifebiz.com${product.image}` : null);
     setShowModal(true);
   };
 
@@ -102,7 +102,7 @@ const EditProduct = () => {
     if (form.image) formData.append("image", form.image);
 
     try {
-      const res = await fetch(`http://187.127.99.119:8000/api/products/${selectedProduct._id}`, {
+      const res = await fetch(`https://api.weblifebiz.com/api/products/${selectedProduct._id}`, {
         method: "PUT",
         body: formData,
         headers: {
@@ -136,7 +136,7 @@ const EditProduct = () => {
 
     if (!confirm("Are you sure you want to delete this product?")) return;
     try {
-      const res = await fetch(`http://187.127.99.119:8000/api/products/${id}`, {
+      const res = await fetch(`https://api.weblifebiz.com/api/products/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

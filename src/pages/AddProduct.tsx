@@ -27,7 +27,7 @@ const AddProduct = () => {
     // setShowCategoryModal(true)
     const fetchCategories = async () => {
       try {
-        const res = await fetch("http://187.127.99.119:8000/api/categories");
+        const res = await fetch("https://api.weblifebiz.com/api/categories");
         const data = await res.json();
         setCategories(data);
       } catch (err) {
@@ -80,7 +80,7 @@ const AddProduct = () => {
       formData.append("image", newCategoryImage);
       console.log(formData)
 
-      const res = await fetch("http://187.127.99.119:8000/api/categories/create", {
+      const res = await fetch("https://api.weblifebiz.com/api/categories/create", {
         method: "POST",
         body: formData,
         headers: {
@@ -125,7 +125,7 @@ const AddProduct = () => {
       formData.append("image", selectedFile);
       formData.append("category", form.category);
 
-      const res = await fetch("http://187.127.99.119:8000/api/products/create", {
+      const res = await fetch("https://api.weblifebiz.com/api/products/create", {
         method: "POST",
         body: formData,
         headers: {

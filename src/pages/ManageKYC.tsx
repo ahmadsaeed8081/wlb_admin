@@ -23,7 +23,7 @@ const ManageKYC = () => {
   const fetchKycUsers = async () => {
     try {
 
-      const res = await fetch("http://187.127.99.119:8000/api/admin/pending-users", {
+      const res = await fetch("https://api.weblifebiz.com/api/admin/pending-users", {
 
       });
 
@@ -64,7 +64,7 @@ const ManageKYC = () => {
 
     try {
 
-      await fetch("http://187.127.99.119:8000/api/admin/update-user-status", {
+      await fetch("https://api.weblifebiz.com/api/admin/update-user-status", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
