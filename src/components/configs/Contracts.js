@@ -1,6 +1,6 @@
 
-export const USDT_address="0x1E537F8BD3228d4EfBF20bD837a48a96649A8D5A"
-export const cont_address="0xe46D9350cf2c8Fc1Feb2AE3d3149E0a989cAb9A0";//0xB1B66EfA8b05A2BA09e2dBA854de4583599129B9
+export const USDT_address="0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+export const cont_address="0x74c0B8b238EA949870b58c936bb54A1fDD1d4260";//0xB1B66EfA8b05A2BA09e2dBA854de4583599129B9
 // export const withdraw_cont="0xA6b89909bddec1f72daD9E2015E4Cce028427311";
 export const withdraw_cont_abi=[
 	{
